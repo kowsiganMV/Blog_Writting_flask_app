@@ -1,0 +1,19 @@
+{% extends "layout.html" %} 
+{% block content %}
+<div style=" display:flex; gap:20px; flex-direction:column; position: relative; top: 20px;">
+  {% for post in posts %}
+            <div class="card mb-2" style="border-radius: 15px; border-color: blueviolet;">
+              <div class="card-body p-4">
+                <h3 class="mb-3">{{post[1]}}</h3>
+                <p class="small mb-0">{{post[2]}}</p>
+                <hr class="my-4">
+                <div class="d-flex justify-content-start align-items-center">
+                  <p class="mb-0 text-uppercase text-muted">Date : {{post[4]}}</p>
+                  <p class="mb-0 text-uppercase text-muted" style="position: relative; left: 23pc;" > -By {{post[3]}}</p>
+                  
+                </div>
+              </div>
+            </div>
+    {% endfor %}
+</div>
+{% endblock %}

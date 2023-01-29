@@ -1,0 +1,113 @@
+{% extends "layout.html" %} 
+{% block content %}
+
+
+<div class="conteainer-section" style="background-color: rgb(255, 255, 255); width: 40pc; position: relative; top: 10px;">
+  <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a
+        class="nav-link "
+        id="tab-login"
+        data-mdb-toggle="pill"
+        href="{{ url_for('login')}}"
+        role="tab"
+        aria-controls="pills-login"
+        aria-selected="true"
+        >Login</a
+      >
+    </li>
+    <li class="nav-item" role="presentation">
+      <a
+        class="nav-link active"
+        id="tab-register"
+        data-mdb-toggle="pill"
+        href="{{ url_for('register')}}"
+        role="tab"
+        aria-controls="pills-register"
+        aria-selected="false"
+        >Register</a
+      >
+    </li>
+  </ul>
+  <form style=" position: relative; left: 50px; " method="post" action="">
+    <div class="text-center mb-3">
+      <p>Sign in with:</p>
+      <a href="#" target="blank"><img align="center" src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png"  height="30" width="40" /></a>
+
+      <a href="#" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg"  height="30" width="40" /></a>
+
+      <a href="#" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg"  height="30" width="40" /></a>
+
+      <a href="#" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/github.svg"  height="30" width="40" /></a>
+
+    </div>
+
+    <p class="text-center">or:</p>
+
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">Singn Up</legend>
+      <div class="form-group">
+        {{ form.username.label(class="form-controll-label")}}
+        {% if form.username.errors %}
+          {{ form.username(class="form-controll form-controll-lg is-invalid ")}}
+          <div class="invalid-feedback">
+            {% for error in form.username.errors %}
+              <span>{{ error }}</span>
+            {% endfor %}
+          </div>
+        {% else %}
+          {{ form.username(class="form-controll form-controll-lg") }}
+        {% endif %}
+      </div>
+      <div class="form-group">
+        {{ form.email.label(class="form-controll-label")}}
+        {% if form.email.errors %}
+          {{ form.email(class="form-controll form-controll-lg is-invalid ")}}
+          <div class="invalid-feedback">
+            {% for error in form.email.errors %}
+              <span>{{ error }}</span>
+            {% endfor %}
+          </div>
+        {% else %}
+          {{ form.email(class="form-controll form-controll-lg") }}
+        {% endif %}
+      </div>
+      <div class="form-group">
+        {{ form.password.label(class="form-controll-label")}}
+        {% if form.password.errors %}
+          {{ form.password(class="form-controll form-controll-lg is-invalid ")}}
+          <div class="invalid-feedback">
+            {% for error in form.password.errors %}
+              <span>{{ error }}</span>
+            {% endfor %}
+          </div>
+        {% else %}
+          {{ form.password(class="form-controll form-controll-lg") }}
+        {% endif %}
+      </div>
+      <div class="form-group">
+        {{ form.confirm_password.label(class="form-controll-label")}}
+        {% if form.confirm_password.errors %}
+          {{ form.confirm_password(class="form-controll form-controll-lg is-invalid ")}}
+          <div class="invalid-feedback">
+            {% for error in form.confirm_password.errors %}
+              <span>{{ error }}</span>
+            {% endfor %}
+          </div>
+        {% else %}
+          {{ form.confirm_password(class="form-controll form-controll-lg") }}
+        {% endif %}
+      </div>
+    </fieldset>
+    <div class="form-group">
+      {{ form.submit(class="btn btn-primary btn-block mb-3")}}
+    </div>
+  </form>
+</div>
+<div class="text-center">
+  <p>Already Hava an acoount <a href="{{ url_for('login')}}">Signin</a></p>
+</div>
+
+
+{% endblock %}
