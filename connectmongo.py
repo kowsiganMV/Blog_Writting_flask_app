@@ -1,6 +1,6 @@
 from pymongo import MongoClient
 
-client=MongoClient("mongodb+srv://dbuser:EbeCaT2xQcSx3L1f@cluster0.vvw0q15.mongodb.net/?retryWrites=true&w=majority")
+client=MongoClient("---db link-----")
 
 db = client.get_database('flask_db')
 
